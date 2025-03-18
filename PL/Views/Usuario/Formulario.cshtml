@@ -1,0 +1,55 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "Formulario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @using (Html.BeginForm("Formulario", "Usuario", FormMethod.Post))
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-4 mt-3">
+                    @Html.HiddenFor(model => model.IdUsuario)
+                    @Html.LabelFor(model => model.Nombre)
+                    @Html.TextBoxFor(model => model.Nombre, new { @id = "Nombre", @class = "form-control", @placeholder = "Nombre", @required = "required" })
+                </div>
+                <div class="col-4 mt-3">
+                    @Html.LabelFor(model => model.ApellidoPaterno)
+                    @Html.TextBoxFor(model => model.ApellidoPaterno, new { @id = "ApellidoPterno", @class = "form-control", @placeholder = "ApellidoPaterno", @required = "required" })
+                </div>
+                <div class="col-4 mt-3">
+                    @Html.LabelFor(model => model.ApellidoMaterno)
+                    @Html.TextBoxFor(model => model.ApellidoMaterno, new { @id = "ApellidoMaterno", @class = "form-control", @placeholder = "ApellidoMaterno", @required = "required" })
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-3">
+                    @Html.LabelFor(model => model.Edad)
+                    @Html.TextBoxFor(model => model.Edad, new { @id = "Edad", @class = "form-control", @placeholder = "Edad", @required = "required" })
+                </div>
+                <div class="col-4 mt-3">
+                    @Html.LabelFor(model => model.Sexo)
+                    @Html.TextBoxFor(model => model.Sexo, new { @id = "Sexo", @class = "form-control", @placeholder = "Sexo", @required = "required" })
+                </div>
+                <div class="col-4 mt-3">
+                    @Html.LabelFor(model => model.Telefono)
+                    @Html.TextBoxFor(model => model.Telefono, new { @id = "Telefono", @class = "form-control", @placeholder = "Telefono", @required = "required" })
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-2 mt-3">
+                    <button type="submit" class="btn btn-outline-secondary">Guardar</button>
+                </div>
+                <div class="col-2 mt-3">
+                    @Html.ActionLink("Cancelar", "GetAll", "Usuario", new { @class = "btn btn-outline-danger" })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
